@@ -172,11 +172,26 @@ public class Tiles extends AppCompatActivity {
     String groupCupInstruction(String name1, String name2){
         String retVal = "";
 
-        if (currentGroupDrinks > 2){
+        if (currentGroupDrinks <= 2){
+            int instructionDecider = (int) Math.random() * 1463 % 2;  //Decides the instruction
+            //for adding to the cup
+
+            if(instructionDecider == 0){
+                retVal = name1 + " will now share some of their drink into the group " +
+                        "cup! #generous";
+            }
+            else if(instructionDecider == 1){
+                retVal = name1 + ", choose somebody to pour some of their drink into the " +
+                        "group cup";
+            }
+            currentGroupDrinks++;
+        }
+
+        else if (currentGroupDrinks > 2){
             int temp = (int) Math.random() * 1463 % 100 + 1;   //Used to randomly determine whether the cup requires drinking
 
             //If temp <= 75 then add to the cup
-            if(temp <= 75){
+            if(temp <= 50){
                 int instructionDecider = (int) Math.random() * 100 % 3;  //Decides how the drink will be completed
 
                 //These 'if' conditions determine which message will be
@@ -196,7 +211,7 @@ public class Tiles extends AppCompatActivity {
             }
             //if temp <= 100 then add to the cup
             else if(temp <= 100){
-                int instructionDecider = (int) Math.random() * 100 % 2;  //Decides the instruction
+                int instructionDecider = (int) Math.random() * 1463 % 2;  //Decides the instruction
                                                                             //for adding to the cup
 
                 if(instructionDecider == 0){
@@ -211,22 +226,6 @@ public class Tiles extends AppCompatActivity {
                 currentGroupDrinks++;
             }
         }
-
-        if (currentGroupDrinks <= 2){
-            int instructionDecider = (int) Math.random() * 100 % 2;  //Decides the instruction
-            //for adding to the cup
-
-            if(instructionDecider == 0){
-                retVal = name1 + " will now share some of their drink into the group " +
-                        "cup! #generous";
-            }
-            else if(instructionDecider == 1){
-                retVal = name1 + ", choose somebody to pour some of their drink into the " +
-                        "group cup";
-            }
-            currentGroupDrinks++;
-        }
-
         return retVal;
     }
 }
