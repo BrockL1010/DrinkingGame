@@ -1,5 +1,7 @@
 package bley0001.student.monash.edu.drinkinggame;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +27,7 @@ public class HomeScreen extends AppCompatActivity {
         btnAddPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!edtextAddPlayer.getText().toString().equals("") || !edtextAddPlayer.getText().toString().equals(" ")) {
+                if (!edtextAddPlayer.getText().equals("") || !edtextAddPlayer.getText().equals(" ")) {
                     if (Player.getNumberOfPlayers() == 0) {
                         edtextPlayers.append(edtextAddPlayer.getText());
                         Player.addPlayer(edtextAddPlayer.getText().toString());
@@ -45,9 +47,24 @@ public class HomeScreen extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent playGame = new Intent(getApplicationContext(), Tiles.class);
-                playGame.putExtra("bley0001.student.monash.edu.players", Player.getPlayers());
-                startActivity(playGame);
+
+                if(Player.getNumberOfPlayers() <= 1) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(HomeScreen.this).create();
+                    alertDialog.setTitle("Loner");
+                    alertDialog.setMessage("Try finding some friends before playing.");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
+                else {
+                    Intent playGame = new Intent(getApplicationContext(), Tiles.class);
+                    playGame.putExtra("bley0001.student.monash.edu.players", Player.getPlayers());
+                    startActivity(playGame);
+                }
             }
         });
     }
