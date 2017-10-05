@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class Tiles extends AppCompatActivity {
     ArrayList<String> arrPlayers = new ArrayList<String>();
-    private static boolean gamblingFollowUp = false;
-    private static boolean ruleFollowUp = false;
     int penalty = 0;
     String name1 = "";
     String name2 = "";
     int currentGroupDrinks = 0;     //Holds the number of drinks in the group cup
     gamblingTile gambling1 = new gamblingTile(name1, name2);
+    private static int ruleFinishPoint = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,6 @@ public class Tiles extends AppCompatActivity {
         Button test = (Button) findViewById(R.id.btnTest);
         final TextView tvInstruction = (TextView) findViewById(R.id.tvInstruction);
         arrPlayers = getIntent().getExtras().getStringArrayList("bley0001.student.monash.edu.players");
-
-
 
         test.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,9 +37,9 @@ public class Tiles extends AppCompatActivity {
     }
 
     String generateInstruction(){
-
         int typeDecider = (int) (Math.random() * 1163 % 100);
         String retVal = "";
+        int ruleFinishDecider = (int) (Math.random() * 1765 % 100);
 
         
 
@@ -49,6 +47,11 @@ public class Tiles extends AppCompatActivity {
             gambling1.determineResult(name1);
             retVal = gambling1.getMessage();
         }
+        else if(ruleTile.getRuleFollowUp() == true && ruleFinishDecider <= ruleFinishPoint){
+            //display end rule message
+            //remove rule from current rules array
+        }
+
         else {
             name1 = choosePlayer();
             name2 = choosePlayer();
@@ -69,9 +72,12 @@ public class Tiles extends AppCompatActivity {
                 rhymingTile rhyming1 = new rhymingTile(name1, name2);
                 retVal = rhyming1.getMessage();
             }
-            else if (typeDecider <= 99){
+            else if (typeDecider <= 95){
                 groupCupTile group1 = new groupCupTile(name1, name2);
                 retVal = group1.getMessage();
+            }
+            else if (typeDecider <= 99){
+                ruleTile.addCurrentRule(new ruleTile(name1, name2));
             }
         }
 
@@ -83,5 +89,4 @@ public class Tiles extends AppCompatActivity {
         return arrPlayers.get(temp);
     }
 
-    //int set
 }

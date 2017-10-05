@@ -13,7 +13,7 @@ public class basicTile {
     public basicTile(String name1, String name2){
         final int NUMBER_OF_INSTRUCTIONS = 48   ;
         int decider = (int) (Math.random() * 100 % NUMBER_OF_INSTRUCTIONS);
-        penalty = (int) (Math.random() * 100 % 4 + 2);
+        penalty = (int) (Math.random() * 100 % 4 + 1);
         String retVal = "";
         String[] basicInstructions = new String[NUMBER_OF_INSTRUCTIONS];
 
