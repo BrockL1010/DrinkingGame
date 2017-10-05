@@ -10,7 +10,8 @@ import java.util.ArrayList;
 
 public class Tiles extends AppCompatActivity {
     ArrayList<String> arrPlayers = new ArrayList<String>();
-    static boolean gamblingFollowUp = false;
+    private static boolean gamblingFollowUp = false;
+    private static boolean ruleFollowUp = false;
     int penalty = 0;
     String name1 = "";
     String name2 = "";
@@ -35,8 +36,8 @@ public class Tiles extends AppCompatActivity {
                 tvInstruction.append(generateInstruction());
             }
         });
-
     }
+
     String generateInstruction(){
 
         int typeDecider = (int) (Math.random() * 1163 % 100);
@@ -82,5 +83,5 @@ public class Tiles extends AppCompatActivity {
         return arrPlayers.get(temp);
     }
 
-
+    //int set
 }

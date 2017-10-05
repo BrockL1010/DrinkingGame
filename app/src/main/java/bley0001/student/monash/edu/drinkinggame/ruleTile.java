@@ -9,11 +9,11 @@ public class ruleTile {
     private String message;
     private int penalty;
 
-    //ayo check this test #boneless
+    //ayo check this test
 
     //Constructor
     public ruleTile(String name1, String name2){
-        final int NUMBER_OF_RULES = 0;
+        final int NUMBER_OF_RULES = 20;
         int ruleDecider = (int) Math.random() * 1364 % NUMBER_OF_RULES;
         penalty = (int) (Math.random() * 100 % 4 + 2);
         String[] rules = new String[NUMBER_OF_RULES];
@@ -50,5 +50,8 @@ public class ruleTile {
         rules[17] = name1 + " from now on must only talk in an American accent #yanks";
         rules[18] = name1 + " MUST yell EVERY second WORD or DRINK " + penalty + " TIMES";
         rules[19] = name1 + " can only now have T-Rex arms!";
+
+        message = rules[ruleDecider];
+
     }
 }
