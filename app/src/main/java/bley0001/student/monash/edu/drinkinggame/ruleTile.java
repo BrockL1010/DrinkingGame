@@ -9,6 +9,8 @@ public class ruleTile {
     private String message;
     private int penalty;
 
+    //ayo check this test #boneless
+
     //Constructor
     public ruleTile(String name1, String name2){
         final int NUMBER_OF_RULES = 0;
