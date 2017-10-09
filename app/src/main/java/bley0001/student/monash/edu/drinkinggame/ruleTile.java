@@ -14,7 +14,7 @@ public class ruleTile {
     private static boolean ruleFollowUp = false;
     private static ArrayList<ruleTile> currentRules = new ArrayList<ruleTile>(10);
     private static ArrayList<String> endRules = new ArrayList<String>(10);
-    private static ArrayList<String> rulePlayers = new ArrayList<String>(10)
+    private static ArrayList<String> rulePlayers = new ArrayList<String>(10);
 
     //Constructor
     public ruleTile(String name1, String name2){
