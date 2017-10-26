@@ -9,17 +9,18 @@ import java.util.ArrayList;
 public class ruleTile {
     //Class variables
     private String rule;
-    private String endRule;
+    private String endRuleMessage;
     private int penalty;
     private static boolean ruleFollowUp = false;
     private static ArrayList<ruleTile> currentRules = new ArrayList<ruleTile>(10);
     private static ArrayList<String> endRules = new ArrayList<String>(10);
     private static ArrayList<String> rulePlayers = new ArrayList<String>(10);
+    private static int ruleFinishPoint = 1;
 
     //Constructor
     public ruleTile(String name1, String name2){
         final int NUMBER_OF_RULES = 20;
-        int ruleDecider = (int) Math.random() * 1364 % NUMBER_OF_RULES;
+        int ruleDecider = (int) (Math.random() * 1364 % NUMBER_OF_RULES);
         penalty = (int) (Math.random() * 100 % 4 + 2);
         String[] rules = new String[NUMBER_OF_RULES];
         String[] rulesEndings = new String[NUMBER_OF_RULES];
@@ -61,7 +62,7 @@ public class ruleTile {
         rulesEndings[0] = name1 + " is no longer mute";
         rulesEndings[1] = name1 + " can now drink with their preferred hand";
         rulesEndings[2] = "My eyes are up here! You can now look at each other's faces";
-        rulesEndings[3] = name1 + " can be original again, you don't have to repeat everything" +
+        rulesEndings[3] = name1 + " can be original again, you don't have to repeat everything " +
                 name2 + " says anymore";
         rulesEndings[4] = name1 + " is back! You don't have to speak in movie quotes anymore";
         rulesEndings[5] = name1 + " no longer has to think of song titles... I mean, if you want";
@@ -82,7 +83,8 @@ public class ruleTile {
         rulesEndings[18] = name1 + " CAN stop YELLING every SECOND word";
         rulesEndings[19] = name1 + ", dinosaurs are extinct, stop having T-Rex arms";
 
-                rule = rules[ruleDecider];
+        rule = rules[ruleDecider];
+        endRuleMessage = rulesEndings[ruleDecider];
         ruleFollowUp = true;
 
     }
@@ -96,9 +98,25 @@ public class ruleTile {
         return 0;
     }
 
-    /*static String takeFinishedRule(){
-        String temp = currentRules.get(0);
-        currentRules.remove(0);
-        return temp;
-    }*/
+    static int getRuleFinishPoint(){
+        return ruleFinishPoint;
+    }
+
+    static ArrayList<ruleTile> getCurrentRules(){
+        return currentRules;
+    }
+
+    String getEndRuleMessage(){
+        return endRuleMessage;
+    }
+
+    String getRule(){
+        return rule;
+    }
+
+    static int setRuleFinishPoint(int newVal){
+        ruleFinishPoint = newVal;
+        return 0;
+    }
 }
+

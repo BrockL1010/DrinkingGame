@@ -9,14 +9,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class Tiles extends AppCompatActivity {
-    ArrayList<String> arrPlayers = new ArrayList<String>();
-    int penalty = 0;
-    String name1 = "";
-    String name2 = "";
-    int currentGroupDrinks = 0;     //Holds the number of drinks in the group cup
-    gamblingTile gambling1 = new gamblingTile(name1, name2);
-    private static int ruleFinishPoint = 1;
-
+    private ArrayList<String> arrPlayers = new ArrayList<String>();
+    private int penalty = 0;
+    private String name1 = "";
+    private String name2 = "";
+    private int currentGroupDrinks = 0;     //Holds the number of drinks in the group cup
+    private gamblingTile gambling1 = new gamblingTile(name1, name2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +45,10 @@ public class Tiles extends AppCompatActivity {
             gambling1.determineResult(name1);
             retVal = gambling1.getMessage();
         }
-        else if(ruleTile.getRuleFollowUp() == true && ruleFinishDecider <= ruleFinishPoint){
-            //display end rule message
-            //remove rule from current rules array
+        else if(ruleTile.getRuleFollowUp() == true && ruleFinishDecider <= ruleTile.getRuleFinishPoint()){
+            retVal = ruleTile.getCurrentRules().get(0).getEndRuleMessage();
+            ruleTile.getCurrentRules().remove(0);
+            ruleTile.setRuleFinishPoint(0);
         }
 
         else {
@@ -60,25 +59,35 @@ public class Tiles extends AppCompatActivity {
                 name2 = choosePlayer();
             }
 
-            if (typeDecider <= 80) {
+            //Increments the chances of the rule finishing next turn by 5
+            if (ruleTile.getRuleFollowUp() == true){
+                ruleTile.setRuleFinishPoint(ruleTile.getRuleFinishPoint() + 5);
+            }
+
+
+            //Decides what type of tile will be next
+            if (typeDecider <= 70) {
                 basicTile basic1 = new basicTile(name1, name2);
                 retVal = basic1.getMessage();
-            } else if (typeDecider <= 85) {
+            } else if (typeDecider <= 75) {
                 gambling1.recreateTile(name1, name2);
                 retVal = gambling1.getMessage();
                 gamblingTile.setGamblingFollowUp(true);
             }
-            else if (typeDecider <= 90){
+            else if (typeDecider <= 80){
                 rhymingTile rhyming1 = new rhymingTile(name1, name2);
                 retVal = rhyming1.getMessage();
             }
-            else if (typeDecider <= 95){
+            else if (typeDecider <= 90){
                 groupCupTile group1 = new groupCupTile(name1, name2);
                 retVal = group1.getMessage();
             }
             else if (typeDecider <= 99){
-                ruleTile.addCurrentRule(new ruleTile(name1, name2));
+                ruleTile rule1 = new ruleTile(name1, name2);
+                ruleTile.addCurrentRule(rule1);
+                retVal = rule1.getRule();
             }
+
         }
 
         return retVal;
