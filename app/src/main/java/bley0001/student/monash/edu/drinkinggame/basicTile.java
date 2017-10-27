@@ -11,9 +11,9 @@ public class basicTile {
 
     //Basic tile constructor
     public basicTile(String name1, String name2){
-        final int NUMBER_OF_INSTRUCTIONS = 48   ;
+        final int NUMBER_OF_INSTRUCTIONS = 68   ;
         int decider = (int) (Math.random() * 100 % NUMBER_OF_INSTRUCTIONS);
-        penalty = (int) (Math.random() * 100 % 4 + 1);
+        penalty = (int) (Math.random() * 100 % 2 + 2);
         String retVal = "";
         String[] basicInstructions = new String[NUMBER_OF_INSTRUCTIONS];
 
@@ -49,13 +49,13 @@ public class basicTile {
                 penalty + " times. Tonight's the night!";
         basicInstructions[22] = "If you're studying a course that's taking you nowhere, drink " +
                 penalty + " times! Enjoy the job market";
-        basicInstructions[23] = name1 + " can decide who must drink the group cup!... Choose wisely";
+        basicInstructions[23] = "Anyone shorter than " + name1 + " must drink " + penalty + " times";
         basicInstructions[24] = name1 + " is a basic bitch, drink " + penalty + " times!";
         basicInstructions[25] = "Everybody playing must replicate a trick performed by " +
                 name1 + " or drink " + penalty + " times.";
         basicInstructions[26] = "Tap your head and rub your belly! Go one at a time, and those " +
                 "who fail must drink " + penalty + " times.";
-        basicInstructions[27] = "Drink " + penalty + " times if you wear glasses. #4eyes";
+        basicInstructions[27] = "Drink " + penalty + " times if you wear glasses #4eyes";
         basicInstructions[28] = "Those with a terrible haircut drink " + penalty + " times!";
         basicInstructions[29] = "Those who don't wear glasses must drink " + penalty + " times " +
                 "to level the playing field. #blurryvision";
@@ -67,8 +67,8 @@ public class basicTile {
                 "then drink " + penalty + " times. #punching";
         basicInstructions[34] = "Those who have had a same-sex experience drink " + penalty +
                 " times";
-        basicInstructions[35] = "BONELESS\nEveryone can give out " + penalty + " drinks but must" +
-                " also drink the same amount";
+        basicInstructions[35] = "BONELESS\nEveryone must give out " + penalty + " drinks but also" +
+                " drink the same amount themselves";
         basicInstructions[36] = name1 + ", balance on one leg for 15 seconds or drink " + penalty +
                 " times";
         basicInstructions[37] = "If " + name1 + " cannot click with both hands then they must drink " +
@@ -76,12 +76,12 @@ public class basicTile {
         basicInstructions[38] = "If the first letter of your name is a vowel drink " + penalty +
                 " times";
         basicInstructions[39] = "Got a crack in your phone? Drink " + penalty + " times #takecare";
-        basicInstructions[40] = "Drink " + penalty + " times if you have pissed yourself in " +
+        basicInstructions[40] = "Drink " + penalty + " times if you have pissed yourself in" +
                 " the last two years";
         basicInstructions[41] = "If you went to see an Adam Sandler movie in the last year, " +
                 " drink " + penalty + " times to forget";
         basicInstructions[42] = name1 + " must name 10 Simpsons characters or drink " + penalty +
-                " times #doh";
+                " times #DOH";
         basicInstructions[43] = "Drink " + penalty + " times if you have never seen an episode" +
                 " of Game of Thrones";
         basicInstructions[44] = "Drink " + penalty + " times if you have never seen an episode" +
@@ -95,6 +95,41 @@ public class basicTile {
         basicInstructions[47] = name1 + " will choose a topic for " + name2 + " to rant about " +
                 "for 30 seconds. If " + name2 + " fails then they must drink " + penalty +
                 " times";
+        basicInstructions[48] = name1 + ", tell a joke! Whoever laughs must drink " + penalty +
+                " times, but if nobody laughs then " + name1 + " must drink " + (penalty + 1) +
+                " times";
+        basicInstructions[49] = "If you're wearing a hat then drink " + penalty + " times";
+        basicInstructions[50] = "Those who have bones must drink " + penalty + " times #traitors";
+        basicInstructions[51] = "If you have ever broken a bone then drink " + penalty + " times";
+        basicInstructions[52] = name1 + ", think of a trait. Everyone posessing that trait" +
+                " must drink " + penalty + " times";
+        basicInstructions[53] = name1 + ", do 10 pushups or drink " + penalty + " times";
+        basicInstructions[54] = "If you have hooked up with somebody you didn't know in the last" +
+                " week then drink " + penalty + " times";
+        basicInstructions[55] = "If you have had your phone for more than 2 years drink " +
+                penalty + " times";
+        basicInstructions[56] = "Hey fatass! If you've had fast food in the last week then" +
+                " drink " + penalty + " times";
+        basicInstructions[57] = "Those who aren't wearing jumpers should drink " + penalty +
+                " times to warm themselves up!";
+        basicInstructions[58] = name1 + " and " + name2 + ", have a staring contest. First" +
+                " to blink must drink " + penalty + " times";
+        basicInstructions[59] = "If you're a vegetarian then drink " + penalty + " times because" +
+                " alcohol is meat free! #equality";
+        basicInstructions[60] = "If you have ever drunk to stop being sad, drink " + penalty +
+                " more times now #alcoholism";
+        basicInstructions[61] = "If you've ever had your naughty bits out on someone else's " +
+                "snapchat then drink " + penalty + " times #scandalous";
+        basicInstructions[62] = "If you have ever been fired, drink " + penalty + " times";
+        basicInstructions[63] = "If you're unemployed, drink " + penalty + " times";
+        basicInstructions[64] = "If you have Facebook, Twitter, Instagram AND Snapchat, " +
+                "drink " + penalty + " times";
+        basicInstructions[65] = "If you have ever stolen government property then drink " +
+                penalty + " times";
+        basicInstructions[66] = "Waterfall!\n" + name1 + " must start drinking, while everyone else " +
+                "must drink whenever the person to their right is drinking";
+        basicInstructions[67] = "Drink once for every vowel you have in your surname";
+
 
                 message = basicInstructions[decider];
     }

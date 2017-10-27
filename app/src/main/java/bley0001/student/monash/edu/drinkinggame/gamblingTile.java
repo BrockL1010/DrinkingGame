@@ -15,7 +15,7 @@ public class gamblingTile {
         penalty = (int) (Math.random() * 100 % 3 + 2);
         message = "Let's Gamble!\n" + name1 + ", either drink " + penalty + " times now, or choose " +
                 "to gamble. If you gamble you will either drink " + (int) (penalty * 2) + " times, or be " +
-                "able to give out " + (int) (penalty * 3) + " drinks.";
+                "able to give out " + (int) (penalty * 2) + " drinks.";
     }
 
     public gamblingTile(){
@@ -27,7 +27,7 @@ public class gamblingTile {
         penalty = (int) (Math.random() * 100 % 3 + 2);
         message = "Let's Gamble!\n" + name1 + ", either drink " + penalty + " times now, or choose " +
                 "to gamble. If you gamble you will either drink " + (int) (penalty * 2) + " times, or be " +
-                "able to give out " + (int) (penalty * 3) + " drinks.";
+                "able to give out " + (int) (penalty * 2) + " drinks.";
 
         return 0;
     }
@@ -44,7 +44,7 @@ public class gamblingTile {
         int winDecider = (int) (Math.random() * 100 % 2);
         if(winDecider == 0){
             message = "If you gambled then congratulations " + name1 + "! You may now distribute the " + (int) (penalty
-                    * 3) + " drinks as you please!";
+                    * 2) + " drinks as you please!";
         }
         else if(winDecider == 1){
             message = "I hope you didn't gamble " + name1 + "! Otherwise you must now drink " + (int) (penalty * 2) + " times";

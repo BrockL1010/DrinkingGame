@@ -45,10 +45,13 @@ public class Tiles extends AppCompatActivity {
             gambling1.determineResult(name1);
             retVal = gambling1.getMessage();
         }
-        else if(ruleTile.getRuleFollowUp() == true && ruleFinishDecider <= ruleTile.getRuleFinishPoint()){
+        else if(ruleTile.getRuleFollowUp() == true && ruleFinishDecider <= ruleTile.getCurrentRules().get(0).getRuleFinishPoint()){
             retVal = ruleTile.getCurrentRules().get(0).getEndRuleMessage();
             ruleTile.getCurrentRules().remove(0);
-            ruleTile.setRuleFinishPoint(0);
+
+            if (ruleTile.getCurrentRules().size() == 0){
+                ruleTile.setRuleFollowUp(false);
+            }
         }
 
         else {
@@ -61,7 +64,10 @@ public class Tiles extends AppCompatActivity {
 
             //Increments the chances of the rule finishing next turn by 5
             if (ruleTile.getRuleFollowUp() == true){
-                ruleTile.setRuleFinishPoint(ruleTile.getRuleFinishPoint() + 5);
+                for (int i = 0; i <= ruleTile.getCurrentRules().size() - 1; i++){
+                    ruleTile.getCurrentRules().get(i).setRuleFinishPoint(ruleTile.getCurrentRules().get(i).getRuleFinishPoint() + 4);
+                }
+                //ruleTile.setRuleFinishPoint(ruleTile.getRuleFinishPoint() + 5);
             }
 
 

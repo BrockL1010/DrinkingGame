@@ -15,13 +15,13 @@ public class ruleTile {
     private static ArrayList<ruleTile> currentRules = new ArrayList<ruleTile>(10);
     private static ArrayList<String> endRules = new ArrayList<String>(10);
     private static ArrayList<String> rulePlayers = new ArrayList<String>(10);
-    private static int ruleFinishPoint = 1;
+    private int ruleFinishPoint = 0;
 
     //Constructor
     public ruleTile(String name1, String name2){
-        final int NUMBER_OF_RULES = 20;
+        final int NUMBER_OF_RULES = 22;
         int ruleDecider = (int) (Math.random() * 1364 % NUMBER_OF_RULES);
-        penalty = (int) (Math.random() * 100 % 4 + 2);
+        penalty = (int) (Math.random() * 100 % 2 + 2);
         String[] rules = new String[NUMBER_OF_RULES];
         String[] rulesEndings = new String[NUMBER_OF_RULES];
 
@@ -40,14 +40,14 @@ public class ruleTile {
                 "addressed by their new nicknames, and those who fail must drink " + penalty + " times";
         rules[8] = "Carrier pigeon! You may only speak to someone if your message is spoken to them " +
                 "through another player. Those who fail must drink " + penalty + " times";
-        rules[9] = name1 + " amd " + name2 + " must swap drinks until further notice!";
+        rules[9] = name1 + " and " + name2 + " must swap drinks until further notice!";
         rules[10] = name1 + " is the barman! Everytime you drink you must ask them for permission " +
                 " first (they are allowed to deny your drinks!";
         rules[11] = name1 + " must salute to " + name2 + " until further notice or drink whenever" +
                 " they are not";
         rules[12] = name1 + " and " + name2 + " are drinking buddies! Every time one drinks," +
                 " the other must drink as well #tagteam";
-        rules[13] = name1 + " you have done a no-no :( Go to the naughty corner until" +
+        rules[13] = name1 + " you have done a \nno-no :( Go to the naughty corner until" +
                 " told otherwise";
         rules[14] = name1 + " must pretend to be " + name2 + " until further notice. Drink " + penalty +
                 " times whenever you forget";
@@ -57,6 +57,8 @@ public class ruleTile {
         rules[17] = name1 + " from now on must only talk in an American accent #yanks";
         rules[18] = name1 + " MUST yell EVERY second WORD or DRINK " + penalty + " TIMES";
         rules[19] = name1 + " can only now have T-Rex arms!";
+        rules[20] = name1 + " must now sing everything they say";
+        rules[21] = "Everyone from now on must speak only in the third person!";
 
         //End rule declarations go here
         rulesEndings[0] = name1 + " is no longer mute";
@@ -78,10 +80,12 @@ public class ruleTile {
         rulesEndings[14] = name1 + " is no longer the master of impressions, they can stop" +
                 " being " + name2;
         rulesEndings[15] = "Dab city is over, you don't need to dab when you speak anymore";
-        rulesEndings[16] = name1 + " and " + name2 + " can stop being lovebirds and break eyecontact";
+        rulesEndings[16] = name1 + " and " + name2 + " can stop being lovebirds and break eye contact";
         rulesEndings[17] = name1 + " leaves the great U S of A and can speak in their normal accent";
         rulesEndings[18] = name1 + " CAN stop YELLING every SECOND word";
         rulesEndings[19] = name1 + ", dinosaurs are extinct, stop having T-Rex arms";
+        rulesEndings[20] = name1 + ", you can stop torturing us with your sing-speaking!";
+        rulesEndings[21] = "No more speaking in the third person!";
 
         rule = rules[ruleDecider];
         endRuleMessage = rulesEndings[ruleDecider];
@@ -98,7 +102,7 @@ public class ruleTile {
         return 0;
     }
 
-    static int getRuleFinishPoint(){
+    int getRuleFinishPoint(){
         return ruleFinishPoint;
     }
 
@@ -114,8 +118,13 @@ public class ruleTile {
         return rule;
     }
 
-    static int setRuleFinishPoint(int newVal){
+    int setRuleFinishPoint(int newVal){
         ruleFinishPoint = newVal;
+        return 0;
+    }
+
+    static int setRuleFollowUp(boolean status){
+        ruleFollowUp = status;
         return 0;
     }
 }

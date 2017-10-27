@@ -30,8 +30,8 @@ public class groupCupTile {
         else if (currentGroupDrinks > 2){
             int temp = (int) Math.random() * 1463 % 100 + 1;   //Used to randomly determine whether the cup requires drinking
 
-            //If temp <= 75 then add to the cup
-            if(temp <= 50){
+            //If temp <= 35 then drink
+            if(temp <= 35){
                 int instructionDecider = (int) Math.random() * 100 % 3;  //Decides how the drink will be completed
 
                 //These 'if' conditions determine which message will be
