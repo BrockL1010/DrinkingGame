@@ -27,7 +27,7 @@ public class HomeScreen extends AppCompatActivity {
         btnAddPlayer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!edtextAddPlayer.getText().equals("") || !edtextAddPlayer.getText().equals(" ")) {
+                if (!edtextAddPlayer.getText().equals("") && !edtextAddPlayer.getText().equals(" ")) {
                     if (Player.getNumberOfPlayers() == 0) {
                         edtextPlayers.append(edtextAddPlayer.getText());
                         Player.addPlayer(edtextAddPlayer.getText().toString());

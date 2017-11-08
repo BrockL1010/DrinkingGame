@@ -41,7 +41,7 @@ public class ruleTile {
         rules[8] = "Carrier pigeon! You may only speak to someone if your message is spoken to them " +
                 "through another player. Those who fail must drink " + penalty + " times";
         rules[9] = name1 + " and " + name2 + " must swap drinks until further notice!";
-        rules[10] = name1 + " is the barman! Everytime you drink you must ask them for permission " +
+        rules[10] = name1 + " is the barman! Everytime you drink you must ask him or her for permission " +
                 " first (they are allowed to deny your drinks!";
         rules[11] = name1 + " must salute to " + name2 + " until further notice or drink whenever" +
                 " they are not";

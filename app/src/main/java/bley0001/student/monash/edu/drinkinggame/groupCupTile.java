@@ -13,7 +13,7 @@ public class groupCupTile {
     //Group cup tile constructor
     public groupCupTile(String name1, String name2){
         if (currentGroupDrinks <= 2){
-            int instructionDecider = (int) Math.random() * 1463 % 2;  //Decides the instruction
+            int instructionDecider = (int) (Math.random() * 1463 % 2);  //Decides the instruction
             //for adding to the cup
 
             if(instructionDecider == 0){
@@ -28,7 +28,7 @@ public class groupCupTile {
         }
 
         else if (currentGroupDrinks > 2){
-            int temp = (int) Math.random() * 1463 % 100 + 1;   //Used to randomly determine whether the cup requires drinking
+            int temp = (int) (Math.random() * 1463 % 100 + 1);   //Used to randomly determine whether the cup requires drinking
 
             //If temp <= 35 then drink
             if(temp <= 35){

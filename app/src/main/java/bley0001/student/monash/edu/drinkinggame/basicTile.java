@@ -126,7 +126,7 @@ public class basicTile {
                 "drink " + penalty + " times";
         basicInstructions[65] = "If you have ever stolen government property then drink " +
                 penalty + " times";
-        basicInstructions[66] = "Waterfall!\n" + name1 + " must start drinking, while everyone else " +
+        basicInstructions[66] = "Waterfall!\n" + name1 + " must start drinking, and everyone else " +
                 "must drink whenever the person to their right is drinking";
         basicInstructions[67] = "Drink once for every vowel you have in your surname";
 

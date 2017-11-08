@@ -72,19 +72,19 @@ public class Tiles extends AppCompatActivity {
 
 
             //Decides what type of tile will be next
-            if (typeDecider <= 70) {
+            if (typeDecider <= 50) {
                 basicTile basic1 = new basicTile(name1, name2);
                 retVal = basic1.getMessage();
-            } else if (typeDecider <= 75) {
+            } else if (typeDecider <= 60) {
                 gambling1.recreateTile(name1, name2);
                 retVal = gambling1.getMessage();
                 gamblingTile.setGamblingFollowUp(true);
             }
-            else if (typeDecider <= 80){
+            else if (typeDecider <= 65){
                 rhymingTile rhyming1 = new rhymingTile(name1, name2);
                 retVal = rhyming1.getMessage();
             }
-            else if (typeDecider <= 90){
+            else if (typeDecider <= 80){
                 groupCupTile group1 = new groupCupTile(name1, name2);
                 retVal = group1.getMessage();
             }
